@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRG Survivors</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #000;
+        }
+        canvas {
+            display: block;
+        }
+        #startButton {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px 40px;
+            font-size: 24px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+        }
+        #startButton:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <button id="startButton">Iniciar Jogo</button>
+
+    <!-- Engine -->
+    <script src="js/engine/input.js"></script>
+    <script src="js/engine/sprite.js"></script>
+    <script src="js/engine/audio.js"></script>
+    <script src="js/engine/classSelection.js"></script>
+    <script src="js/engine/game.js"></script>
+    
+    <!-- Entities -->
+    <script src="js/entities/weapon.js"></script>
+    <script src="js/entities/player.js"></script>
+    <script src="js/entities/enemy.js"></script>
+    <script src="js/entities/powerup.js"></script>
+    
+    <!-- Main -->
+    <script>
+        
+        const startButton = document.getElementById('startButton');
+        startButton.style.display = 'block';
+        
+        
+        startButton.addEventListener('click', () => {
+            startButton.style.display = 'none';
+            const game = new Game();
+            
+            game.audio.playBackgroundMusic();
+        });
+    </script>
+</body>
+</html>
